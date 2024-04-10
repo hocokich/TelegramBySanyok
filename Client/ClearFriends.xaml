@@ -1,0 +1,15 @@
+﻿<Window x:Class="Client.ClearFriends"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Удалить друзей" Height="250" Width="450" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Точно удалить друзей ?" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Yes" Content="Да" HorizontalAlignment="Left" Margin="104,117,0,0" VerticalAlignment="Top" Width="60" Click="Yes_Click"/>
+        <Button x:Name="No" Content="Нет" HorizontalAlignment="Left" Margin="277,117,0,0" VerticalAlignment="Top" Width="60" Click="No_Click"/>
+        <Label Content="Все переписки кроме BroadCast будут удалены." HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

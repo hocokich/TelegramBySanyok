@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
-        Title="Server" Height="450" Width="450" ResizeMode="NoResize">
+        Title="Server" Height="450" Width="650"   ResizeMode="NoResize" Closed="BeforeClose">
     <Grid>
-        <Button x:Name="Start" Content="Start" Margin="70,324,0,0" VerticalAlignment="Top" Height="66" HorizontalAlignment="Left" Width="153" Click="Start_Click"/>
-        <Button x:Name="Stop" Content="Stop" Margin="229,324,0,0" VerticalAlignment="Top" Height="66" HorizontalAlignment="Left" Width="152" Click="Stop_Click"/>
+        <Button x:Name="Start" Content="Старт" Margin="70,324,0,0" VerticalAlignment="Top" Height="66" HorizontalAlignment="Left" Width="153" Click="Start_Click"/>
+        <Button x:Name="Stop" IsEnabled="False" Content="Стоп" Margin="229,324,0,0" VerticalAlignment="Top" Height="66" HorizontalAlignment="Left" Width="152" Click="Stop_Click"/>
         <ListBox x:Name="ServerLog" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="70,41,0,0" Height="278" VerticalAlignment="Top" HorizontalAlignment="Left" Width="310"/>
         <Label Content="Server log:" HorizontalAlignment="Left" Margin="71,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Online clients:" HorizontalAlignment="Left" Margin="409,10,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="OnlineClients" Content="0" HorizontalAlignment="Left" Margin="496,10,0,0" VerticalAlignment="Top" Width="64"/>
+        <Button x:Name="ClearLog" Content="Очистить лог" Margin="409,41,0,0" VerticalAlignment="Top" Height="33" HorizontalAlignment="Left" Width="153" Click="ClearLog_Click"/>
+        <Button x:Name="DownloadLog" Content="Скачать лог" Margin="409,79,0,0" VerticalAlignment="Top" Height="33" HorizontalAlignment="Left" Width="153" Click="DownloadLog_Click"/>
+        <CheckBox x:Name="ClearLogSign" HorizontalAlignment="Left" Margin="567,49,0,0" VerticalAlignment="Top" Height="16" Width="16" />
 
     </Grid>
 </Window>

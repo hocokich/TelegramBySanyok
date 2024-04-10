@@ -1,0 +1,20 @@
+
+отправка с Client:
+
+~uID
+~DISCON
+~FIND
+~NOTFIND
+~PMFORU
+~UPM
+~UDELETED
+~DELFRNDs
+~CON
+-------------------------------------------
+отправка с Server:
+
+~PM
+~DELFRNDs
+~FIND
+~DISCON
+/INV
