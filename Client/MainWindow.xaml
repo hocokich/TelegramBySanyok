@@ -5,29 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Telegram by Sanyok 0.6.1a" Height="500" Width="900" ResizeMode="NoResize" Closed="BeforeClose" Background="#FF7A8EB5">
+        Title="Telegram by Sanyok 0.6.2a" Height="500" Width="900" ResizeMode="NoResize" Closed="BeforeClose" Background="#FF7A8EB5" FontFamily="Montserrat Black">
     <Grid>
-        <ListBox x:Name="LogMessages" Margin="218,92,0,0" Height="323" VerticalAlignment="Top" HorizontalAlignment="Left" Width="436" Background="#FFEFD7DD"/>
+        <ListBox x:Name="LogMessages" Margin="198,92,0,0" Height="323" VerticalAlignment="Top" HorizontalAlignment="Left" Width="524" Background="#FF5E739C" Foreground="White"/>
         <TextBox x:Name="msg" HorizontalAlignment="Left" Margin="277,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" RenderTransformOrigin="0.5,0.5" Height="20" KeyDown="EnterSend"/>
-        <Button x:Name="Send" Content="Отправить" HorizontalAlignment="Left" Margin="521,420,0,0" VerticalAlignment="Top" Height="20" Width="75" Click="Send_Click" Background="#FFFFADAD"/>
-        <Label Content="IDдруга:" HorizontalAlignment="Left" Margin="19,64,0,0" VerticalAlignment="Top" Width="55"/>
+        <Button x:Name="Send" Content="Отправить" HorizontalAlignment="Left" Margin="521,420,0,0" VerticalAlignment="Top" Height="20" Width="83" Click="Send_Click" Background="#FFFFADAD"/>
+        <Label Content="IDдруга:" HorizontalAlignment="Left" Margin="12,64,0,0" VerticalAlignment="Top" Width="62"/>
         <TextBox x:Name="uName" HorizontalAlignment="Left" Margin="375,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" RenderTransformOrigin="0.5,0.5" Height="20"/>
         <Label Content="Моё имя:" HorizontalAlignment="Left" Margin="307,29,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.529,0.618"/>
-        <Label Content="Напишите &quot;/INV&quot;, если хотите &quot;перевернуть&quot; сообщение" HorizontalAlignment="Left" Margin="561,440,0,0" Width="329" Height="29" VerticalAlignment="Top"/>
-        <ListBox x:Name="ListOfCorrespondence" Margin="12,92,0,0" Height="323" VerticalAlignment="Top" HorizontalAlignment="Left" Width="201" SelectionChanged="ListOfCorrespondence_Click" Background="#FFF3C6D0">
+        <Label Content="Напишите &quot;/INV&quot;, если хотите &quot;перевернуть&quot; сообщение" HorizontalAlignment="Left" Margin="493,440,0,0" Width="397" Height="29" VerticalAlignment="Top"/>
+        <ListBox x:Name="ListOfCorrespondence" Margin="12,92,0,0" Height="323" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" SelectionChanged="ListOfCorrespondence_Click" Background="#FFADA8CE">
             <ListBoxItem Content="BroadCast" IsSelected="True"/>
         </ListBox>
         <TextBox x:Name="uIDfriend" HorizontalAlignment="Left" Margin="79,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.5,0.5" Height="20"/>
         <Button x:Name="FindFriend" Content="Поиск" HorizontalAlignment="Left" Margin="146,67,0,0" VerticalAlignment="Top" Height="20" Width="47" Click="FindFriend_Click"/>
-        <Label Content="Ваш идентификатор: " HorizontalAlignment="Left" Margin="690,29,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Ваш идентификатор: " HorizontalAlignment="Left" Margin="669,29,0,0" VerticalAlignment="Top" Width="157"/>
         <Label x:Name="myID" Content="------" HorizontalAlignment="Left" Margin="815,29,0,0" VerticalAlignment="Top" Width="41"/>
-        <Label x:Name="OnOff" Content="Нет подключения" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="110" Background="#FFC8A4AC"/>
-        <Label Content="Уведомления: " HorizontalAlignment="Left" Margin="737,64,0,0" VerticalAlignment="Top" Width="89"/>
-        <ListBox x:Name="Notify" Margin="659,92,10,0" Height="323" VerticalAlignment="Top" SelectionChanged="ListOfCorrespondence_Click" Background="#FFF3C6D0"/>
-        <Button x:Name="ClearNotify" IsEnabled="False" Content="Очистить" HorizontalAlignment="Left" Margin="727,420,0,0" VerticalAlignment="Top" Height="20" Width="75" Click="ClearNotify_Click"/>
+        <Label x:Name="OnOff" Content="Нет подключения" HorizontalAlignment="Left" Margin="380,2,0,0" VerticalAlignment="Top" Width="132" Background="#FFC8A4AC" FontFamily="Montserrat Black"/>
+        <Label Content="Уведомления: " HorizontalAlignment="Left" Margin="754,64,0,0" VerticalAlignment="Top" Width="110"/>
+        <ListBox x:Name="Notify" Margin="727,92,10,0" Height="323" VerticalAlignment="Top" SelectionChanged="ListOfCorrespondence_Click" Background="#FFADA8CE"/>
+        <Button x:Name="ClearNotify" IsEnabled="False" Content="Очистить" HorizontalAlignment="Left" Margin="772,420,0,0" VerticalAlignment="Top" Height="20" Width="74" Click="ClearNotify_Click"/>
         <Label x:Name="PMname" Content="BroadCast" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" Width="162" HorizontalContentAlignment="Center"/>
         <Button x:Name="ClearFriends" Content="Очистить" IsEnabled="False" HorizontalAlignment="Left" Margin="75,420,0,0" VerticalAlignment="Top" Height="20" Width="75" Click="ClearFriends_Click"/>
         <CheckBox x:Name="ClearFriendSign" HorizontalAlignment="Left" Margin="155,422,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="ConnectOrDisconnect" Content="Подключиться" HorizontalAlignment="Left" Margin="521,32,0,0" VerticalAlignment="Top" Height="20" Width="84" Click="ConnectOrDisconnect_Click"/>
+        <Button x:Name="ConnectOrDisconnect" Content="Подключиться" HorizontalAlignment="Left" Margin="521,32,0,0" VerticalAlignment="Top" Height="20" Width="108" Click="ConnectOrDisconnect_Click"/>
+        
+        
     </Grid>
 </Window>

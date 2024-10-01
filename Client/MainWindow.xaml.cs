@@ -109,11 +109,13 @@ namespace Client
                     if (message.Contains("~FIND"))
                     {
                         string[] words = message.Split(new char[] { ':' });
-                        
-                        SClient friend = new SClient();
-                        friend.uName = words[0];
-                        friend.uID = int.Parse(words[2]);
-                        friend.msgs = new List<string>();
+
+                        SClient friend = new SClient
+                        {
+                            uName = words[0],
+                            uID = int.Parse(words[2]),
+                            msgs = new List<string>()
+                        };
                         Dispatcher.BeginInvoke(new Action(() => friends.Add(friend)));
 
                         Dispatcher.BeginInvoke(new Action(() => ListOfCorrespondence.Items.Add(friend.uName + ":" + friend.uID)));
@@ -472,12 +474,18 @@ namespace Client
         {
             try
             {
+                for (int i = 0; i < friends.Count - 1; i++)
+                {
+                    if (int.Parse(uIDfriend.Text) == friends[i].uID) return;
+                }
+
                 int uIDfriendFind = int.Parse(uIDfriend.Text);
                 string myUid = myID.Content.ToString();
                 if (uIDfriendFind >= 1000 || uIDfriendFind == int.Parse(myUid))
                 {
                     Dispatcher.BeginInvoke(new Action(() => MessageBox.Show("Некорректный идентификатор")));
                 }
+
                 else
                 {
                     string message = userName + ":~FIND~" + uIDfriend.Text;
@@ -540,5 +548,6 @@ namespace Client
                 ClearFriendsSimple();
             }
         }
+
     }
 }
