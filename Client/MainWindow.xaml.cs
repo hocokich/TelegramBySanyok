@@ -39,9 +39,9 @@ namespace Client
         int port = 8888;
 
         //=======ip адрес сервера======
-        //мой внешний ip - 92.125.149.7
+        //мой внешний ip - 5.137.131.188
         //local IP 127.0.0.1
-        string address = "92.125.149.7";
+        string address = "127.0.0.1";
 
         //объявление TCP клиента
         TcpClient client = null;

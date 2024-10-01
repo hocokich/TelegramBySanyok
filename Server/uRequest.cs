@@ -10,7 +10,7 @@ using System.Windows.Markup;
 namespace Server
 {
     internal class uRequest: ServerUtility
-    {
+    {//Utility Request - утилита запросов
         public string InversionMessage(string Msg)
         {
             Msg = Msg.Replace("/INV", "");
