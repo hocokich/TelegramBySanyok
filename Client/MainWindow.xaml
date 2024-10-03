@@ -24,10 +24,10 @@
         <Button x:Name="ClearFriends" Content="Очистить" IsEnabled="False" HorizontalAlignment="Left" Margin="78,504,0,0" VerticalAlignment="Top" Height="20" Width="74" Click="ClearFriends_Click"/>
         <CheckBox x:Name="ClearFriendSign" HorizontalAlignment="Left" Margin="158,506,0,0" VerticalAlignment="Top"/>
 
-
         <local:Authorization x:Name="autoriz" Visibility="Visible"/>
 
         <Button x:Name="ConnectOrDisconnect" Content="Подключиться" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Height="86" Width="210" Click="ConnectOrDisconnect_Click" FontSize="22"/>
         <Label x:Name="uName" Content="" HorizontalAlignment="Left" Margin="86,87,0,0" VerticalAlignment="Top" Width="56"/>
+        
     </Grid>
 </Window>
