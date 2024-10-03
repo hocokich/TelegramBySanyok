@@ -42,7 +42,7 @@ namespace Server
 
         //мой внутренний - 192.168.0.7
         //локальный IP - 127.0.0.1
-        string address = "127.0.0.1";
+        string address = "192.168.0.7";
 
         //объект, прослушивающий порт
         static TcpListener listener;

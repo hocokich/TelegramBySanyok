@@ -27,6 +27,9 @@ using System.Runtime.Remoting.Messaging;
 using System.Reflection;
 //Удаление друзей проверка
 using static Client.ClearFriends;
+//
+using System.Drawing;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace Client
 {
@@ -41,7 +44,7 @@ namespace Client
         //=======ip адрес сервера======
         //мой внешний ip - 5.137.131.188
         //local IP 127.0.0.1
-        string address = "127.0.0.1";
+        string address = "5.137.189.104";
 
         //объявление TCP клиента
         TcpClient client = null;
@@ -83,6 +86,9 @@ namespace Client
                         string[] words = message.Split(new char[] { ':' });
                         Dispatcher.BeginInvoke(new Action(() => myID.Content = words[1]));
                         Dispatcher.BeginInvoke(new Action(() => OnOff.Content = "Есть подключение"));
+                        Dispatcher.BeginInvoke(new Action(() => autoriz.Visibility = Visibility.Hidden));
+                        Dispatcher.BeginInvoke(new Action(() => ConnectOrDisconnect.Visibility = Visibility.Hidden));
+                        Dispatcher.BeginInvoke(new Action(() => uName.Content = userName));
                         continue;
                     }
                     if (message.Contains("~DISCON"))
@@ -91,7 +97,6 @@ namespace Client
 
                         Dispatcher.BeginInvoke(new Action(() => OnOff.Content = "Нет подключения"));
                         Dispatcher.BeginInvoke(new Action(() => myID.Content = "------"));
-                        Dispatcher.BeginInvoke(new Action(() => Notify.Items.Clear()));
                         Dispatcher.BeginInvoke(new Action(() => LogMessages.Items.Clear()));
                         Dispatcher.BeginInvoke(new Action(() => ListOfCorrespondence.Items.Clear()));
 
@@ -109,11 +114,13 @@ namespace Client
                     if (message.Contains("~FIND"))
                     {
                         string[] words = message.Split(new char[] { ':' });
-                        
-                        SClient friend = new SClient();
-                        friend.uName = words[0];
-                        friend.uID = int.Parse(words[2]);
-                        friend.msgs = new List<string>();
+
+                        SClient friend = new SClient
+                        {
+                            uName = words[0],
+                            uID = int.Parse(words[2]),
+                            msgs = new List<string>()
+                        };
                         Dispatcher.BeginInvoke(new Action(() => friends.Add(friend)));
 
                         Dispatcher.BeginInvoke(new Action(() => ListOfCorrespondence.Items.Add(friend.uName + ":" + friend.uID)));
@@ -140,10 +147,6 @@ namespace Client
                                 break;
                             }
                         }
-
-                        Dispatcher.BeginInvoke(new Action(() => Notify.Items.Add(nameFriend + ":" + uIDfriend + " - прислал сообщение")));
-
-                        Dispatcher.BeginInvoke(new Action(() => ClearNotify.IsEnabled = true));
 
                         if (WhichPMisOpen == uIDfriend)
                         {
@@ -376,7 +379,7 @@ namespace Client
                     Dispatcher.BeginInvoke(new Action(() => friends.Add(cUtility.AddBroadCast())));
 
                     //получение имени пользователя
-                    userName = uName.Text;
+                    userName = autoriz.name.Text;
                     try //если возникнет ошибка - переход в catch
                     {
                         //проверка на длину ника
@@ -384,7 +387,6 @@ namespace Client
                         {
                             //вывести сообщение об ошибке
                             MessageBox.Show("Неподходящий никнейм");
-                            uName.Text = "";
                             return;
                         }
                         //создание клиента
@@ -431,7 +433,6 @@ namespace Client
                     Dispatcher.BeginInvoke(new Action(() => OnOff.Content = "Нет подключения"));
                     Dispatcher.BeginInvoke(new Action(() => myID.Content = "------"));
 
-                    Dispatcher.BeginInvoke(new Action(() => Notify.Items.Clear()));
                     Dispatcher.BeginInvoke(new Action(() => LogMessages.Items.Clear()));
                     Dispatcher.BeginInvoke(new Action(() => ListOfCorrespondence.Items.Clear()));
 
@@ -472,12 +473,18 @@ namespace Client
         {
             try
             {
+                for (int i = 0; i < friends.Count - 1; i++)
+                {
+                    if (int.Parse(uIDfriend.Text) == friends[i].uID) return;
+                }
+
                 int uIDfriendFind = int.Parse(uIDfriend.Text);
                 string myUid = myID.Content.ToString();
                 if (uIDfriendFind >= 1000 || uIDfriendFind == int.Parse(myUid))
                 {
                     Dispatcher.BeginInvoke(new Action(() => MessageBox.Show("Некорректный идентификатор")));
                 }
+
                 else
                 {
                     string message = userName + ":~FIND~" + uIDfriend.Text;
@@ -486,13 +493,6 @@ namespace Client
                 }
             }
             catch { Dispatcher.BeginInvoke(new Action(() => MessageBox.Show("Некорректный идентификатор"))); }
-        }
-
-        private void ClearNotify_Click(object sender, RoutedEventArgs e)
-        {
-            Notify.Items.Clear();
-
-            Dispatcher.BeginInvoke(new Action(() => ClearNotify.IsEnabled = false));
         }
 
         private void ListOfCorrespondence_Click(object sender, SelectionChangedEventArgs e)
@@ -540,5 +540,6 @@ namespace Client
                 ClearFriendsSimple();
             }
         }
+
     }
 }

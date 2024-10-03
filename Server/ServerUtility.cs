@@ -78,6 +78,8 @@ namespace Server
                 FileName = "Document", // Default file name
                 DefaultExt = ".txt", // Default file extension
                 Filter = "Text documents (.txt)|*.txt" // Filter files by extension
+
+
             };
             dlg.ShowDialog();
 

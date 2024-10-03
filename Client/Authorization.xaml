@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Client.Authorization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000" Background="#FF7A8EB5" FontFamily="Montserrat Black">
+    <Grid>
+        <Label Content="Авторизция" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Montserrat Black"/>
+        <TextBox x:Name="name" Margin="505,192,333,0" TextWrapping="Wrap" FontSize="22" Height="29" VerticalAlignment="Top"/>
+        <Label Content="Никнейм" Margin="364,188,495,225" FontSize="22"/>
+
+    </Grid>
+</UserControl>
