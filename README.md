@@ -1,4 +1,5 @@
 Графический интерфейс сервера:
+
 ![image](https://github.com/user-attachments/assets/49964b86-9de1-4a03-8306-e7a9edbc692b)
 
 Встречающее пользователя окно:
