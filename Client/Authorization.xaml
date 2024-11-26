@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1000" Background="#FF7A8EB5" FontFamily="Montserrat Black">
     <Grid>
-        <Label Content="Авторизция" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Montserrat Black"/>
+        <Label Content="Вход" HorizontalAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Montserrat Black"/>
         <TextBox x:Name="name" Margin="505,192,333,0" TextWrapping="Wrap" FontSize="22" Height="29" VerticalAlignment="Top"/>
         <Label Content="Никнейм" Margin="364,188,495,225" FontSize="22"/>
 
